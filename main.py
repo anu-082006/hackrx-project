@@ -1,5 +1,5 @@
-HackRx 6.0 - LLM-Powered Intelligent Query-Retrieval System
-FastAPI application for document processing and question answering
+#HackRx 6.0 - LLM-Powered Intelligent Query-Retrieval System
+#FastAPI application for document processing and question answering
 """
 
 import asyncio
