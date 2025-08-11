@@ -1,7 +1,3 @@
-#HackRx 6.0 - LLM-Powered Intelligent Query-Retrieval System
-#FastAPI application for document processing and question answering
-"""
-
 import asyncio
 import hashlib
 import logging
@@ -9,9 +5,8 @@ import time
 from typing import List, Dict, Any, Optional
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI, HTTPException, Depends, BackgroundTasks
+from fastapi import FastAPI, HTTPException, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
 import uvicorn
 
 from src.models import QuestionRequest, AnswerResponse, ProcessingResult
@@ -205,4 +200,14 @@ async def _post_processing_cleanup(
 
 @app.get("/metrics")
 async def get_metrics():
-    """Get system performance metrics
+    """Get system performance metrics"""
+    try:
+        # Example: Return basic system performance data
+        return {
+            "uptime": time.time() - monitor.start_time,
+            "total_requests": monitor.total_requests,
+            "average_processing_time": monitor.average_processing_time()
+        }
+    except Exception as e:
+        logger.error(f"❌ Error fetching metrics: {e}")
+        raise HTTPException(status_code=500, detail="Failed to fetch metrics")
