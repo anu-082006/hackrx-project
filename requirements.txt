@@ -19,3 +19,5 @@ redis==5.0.1
 sqlalchemy==2.0.23
 psycopg2-binary==2.9.9
 alembic==1.12.1
+sentence-transformers==5.1.0
+huggingface_hub==0.34.4
